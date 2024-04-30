@@ -1,4 +1,4 @@
-local builtin = require("core.plugins")
+local builtin = require("core.plugins").builtin
 
 local set = vim.opt
 local g = vim.g
@@ -23,8 +23,6 @@ set.expandtab = true
 keymap.set("n", "<leader>h", ":nohlsearch<ENTER>")
 
 -- Setting telescope search files and live grep bindings
--- local builtin = builtin
-keymap.set("n", "<C-p>", builtin.find_files, {})
+keymap.set("n", "<leader>ff", builtin.find_files, {})
 keymap.set("n", "<leader>g", builtin.live_grep, {})
-
 
