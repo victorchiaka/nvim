@@ -1,4 +1,4 @@
-local builtin = require("core.plugins")
+local builtin = require("core.plugins").builtin
 
 local set = vim.opt
 local g = vim.g
