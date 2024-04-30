@@ -1,3 +1,2 @@
-require("core.keymaps")
-require("core.plugins")
-require("core.treesitter")
+require("keymaps")
+require("plugins_spec")
