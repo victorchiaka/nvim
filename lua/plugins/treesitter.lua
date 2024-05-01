@@ -11,7 +11,17 @@ return {
         "javascript",
         "python",
         "typescript",
-        "java"
+        "java",
+        "vue",
+        "css",
+        "scss",
+        "tsx",
+        "json",
+        "markdown",
+        "markdown_inline",
+        "bash",
+        "vim",
+        "cpp"
       },
       sync_install = true,
       highlight = { enable = true },
