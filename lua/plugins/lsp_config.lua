@@ -47,7 +47,7 @@ return {
       -- lspconfig.gopls.setup({})
       lspconfig.cssls.setup({})
       lspconfig.html.setup({})
-      lspconfig.markdown_oxide.setup({})
+      lspconfig.markdown_oxide.setup({}) -- For markdown
       lspconfig.prismals.setup({}) -- For prisma ORM
       lspconfig.somesass_ls.setup({})
       lspconfig.taplo.setup({})
