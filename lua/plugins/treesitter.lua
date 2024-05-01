@@ -23,6 +23,7 @@ return {
         "vim",
         "cpp"
       },
+      -- auto_install = true, -- To auto install parser for any language
       sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },
