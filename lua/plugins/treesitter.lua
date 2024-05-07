@@ -21,13 +21,38 @@ return {
         "markdown_inline",
         "bash",
         "vim",
-        "cpp"
+        "cpp",
+      },
+      autotag = {
+        enable = true,
+        enable_rename = true,
+        enable_close = true,
+        enable_close_on_slash = true,
+        filetypes = { "html", "xml" },
+      },
+      filetypes = {
+        "html",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "svelte",
+        "vue",
+        "tsx",
+        "jsx",
+        "rescript",
+        "xml",
+        "php",
+        "markdown",
+        "astro",
+        "glimmer",
+        "handlebars",
+        "hbs",
       },
       -- auto_install = true, -- To auto install parser for any language
       sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     })
-  end
+  end,
 }
-
