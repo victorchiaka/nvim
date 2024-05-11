@@ -10,10 +10,12 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.black,
-				-- null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.prettier,
 				-- null_ls.builtins.formatting.eslint_d,
 				null_ls.builtins.formatting.isort, -- Sorting python imports
+				null_ls.builtins.formatting.black.with({
+					extra_args = { "--line-length=120" },
+				}),
 			},
 		})
 		vim.keymap.set("n", "<leader>v", vim.lsp.buf.format, {}) -- Formatting file using any formatter within the builtins

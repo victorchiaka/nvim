@@ -26,4 +26,3 @@ keymap.set("n", "<leader>h", ":nohlsearch<ENTER>")
 keymap.set("n", "<leader>f", builtin.find_files, {})
 keymap.set("n", "<leader>g", builtin.live_grep, {})
 keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<ENTER>")
-
