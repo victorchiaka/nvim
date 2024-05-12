@@ -31,6 +31,7 @@ return {
 				"lua_ls",
 				"tsserver",
 				"pyright",
+				"ruff_lsp",
 				"svelte",
 				"volar",
 				"astro",

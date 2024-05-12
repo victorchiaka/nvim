@@ -11,7 +11,7 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/neodev.nvim",                   opts = {} },
 		},
 		lazy = false,
 
@@ -74,6 +74,11 @@ return {
 				on_attach = on_attach,
 			})
 			lspconfig.pyright.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "python" },
+			})
+			lspconfig.ruff_lsp.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "python" },
