@@ -10,8 +10,9 @@ return {
 		},
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-cmdline",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim",                   opts = {} },
+			{ "folke/neodev.nvim", opts = {} },
 		},
 		lazy = false,
 
@@ -67,6 +68,31 @@ return {
 						},
 					},
 				},
+			})
+
+			-- Setup command completion
+			local cmp = require("cmp")
+			-- `/` cmdline setup.
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+
+			-- `:` cmdline setup.
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!" },
+						},
+					},
+				}),
 			})
 
 			lspconfig.tsserver.setup({

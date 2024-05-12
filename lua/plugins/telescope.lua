@@ -15,17 +15,19 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		-- This is your opts table
 		config = function()
-      local actions = require("telescope.actions")
-			require("telescope").setup({
-        defaults = {
-          mappings = {
-            i = {
-              ["<C-k>"] = actions.move_selection_previous, -- Move to prev result
-              ["<C-j>"] = actions.move_selection_next, -- Move to next result
-              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            }
-          }
-        },
+			local actions = require("telescope.actions")
+			local telescope = require("telescope")
+
+			telescope.setup({
+				defaults = {
+					mappings = {
+						i = {
+							["<C-k>"] = actions.move_selection_previous, -- Move to prev result
+							["<C-j>"] = actions.move_selection_next, -- Move to next result
+							["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						},
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({
@@ -34,7 +36,10 @@ return {
 					},
 				},
 			})
-			require("telescope").load_extension("ui-select")
+			telescope.load_extension("ui-select")
+
+			-- Setup noice.nvim telescope feature
+			telescope.load_extension("noice")
 		end,
 	},
 }
