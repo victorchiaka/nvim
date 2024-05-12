@@ -57,6 +57,7 @@ return {
 				"ruff",
 				"isort",
 				"pylint",
+				"debugpy"
 			},
 		})
 	end,
