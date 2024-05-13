@@ -3,6 +3,28 @@ local buf = vim.lsp.buf -- To set lsp buffers
 
 return {
 	{
+		"nvim-java/nvim-java",
+		{
+			"nvim-java/lua-async-await",
+			"nvim-java/nvim-java-refactor",
+			"nvim-java/nvim-java-core",
+			"nvim-java/nvim-java-test",
+			"nvim-java/nvim-java-dap",
+			"MunifTanjim/nui.nvim",
+			"neovim/nvim-lspconfig",
+			"mfussenegger/nvim-dap",
+			{
+				"williamboman/mason.nvim",
+				opts = {
+					registries = {
+						"github:nvim-java/mason-registry",
+						"github:mason-org/mason-registry",
+					},
+				},
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = {
 			"BufReadPre",
@@ -12,7 +34,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-cmdline",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/neodev.nvim",                   opts = {} },
 		},
 		lazy = false,
 
@@ -128,7 +150,24 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
-			-- lspconfig.java_language_server.setup({ capabilities = capabilities, on_attach = on_attach, })
+
+			-- For java development
+			lspconfig.jdtls.setup({
+				settings = {
+					java = {
+						configuration = {
+							runtimes = {
+								{
+									name = "JavaSE-21",
+									path = "/usr/lib/jvm/jdk-21-0-3/",
+									default = true,
+								},
+							},
+						},
+					},
+				},
+			})
+
 			-- lspconfig.gopls.setup({ capabilities = capabilities, on_attach = on_attach, })
 			lspconfig.cssls.setup({
 				capabilities = capabilities,

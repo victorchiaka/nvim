@@ -35,7 +35,7 @@ return {
 				"svelte",
 				"volar",
 				"astro",
-				-- "java_language_server",
+				"jdtls",
 				-- "gopls",
 				"cssls",
 				"html",
