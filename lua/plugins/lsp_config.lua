@@ -2,27 +2,9 @@ local keymap = vim.keymap
 local buf = vim.lsp.buf -- To set lsp buffers
 
 return {
+
 	{
-		"nvim-java/nvim-java",
-		{
-			"nvim-java/lua-async-await",
-			"nvim-java/nvim-java-refactor",
-			"nvim-java/nvim-java-core",
-			"nvim-java/nvim-java-test",
-			"nvim-java/nvim-java-dap",
-			"MunifTanjim/nui.nvim",
-			"neovim/nvim-lspconfig",
-			"mfussenegger/nvim-dap",
-			{
-				"williamboman/mason.nvim",
-				opts = {
-					registries = {
-						"github:nvim-java/mason-registry",
-						"github:mason-org/mason-registry",
-					},
-				},
-			},
-		},
+		"mfussenegger/nvim-jdtls",
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -34,7 +16,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-cmdline",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim",                   opts = {} },
+			{ "folke/neodev.nvim", opts = {} },
 		},
 		lazy = false,
 
@@ -54,17 +36,23 @@ return {
 				opts.desc = "Show LSP description"
 				keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp definitions
 
+				opts.desc = "Go to declaration"
+				keymap.set("n", "<leader>d", buf.declaration, opts) -- Go to declaration
+
+				opts.desc = "Show all references"
+				keymap.set("n", "gr", buf.references, opts) -- Show all references
+
+				-- opts.desc = "Shows the list of completion options" -- VERY IMPORTANT
+				-- keymap.set("i", "C-l", buf.completion, opts) -- Brings up the list of suggestion options
+
 				opts.desc = "Show code action"
 				keymap.set("n", "<leader>ca", buf.code_action, opts) -- Show code code_action
 
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", buf.rename, opts) -- Smart rename file
 
-				opts.desc = "Go to declaration"
-				keymap.set("n", "<leader>d", buf.declaration, opts) -- Go to declaration
-
 				opts.desc = "Restart LSP"
-				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+				keymap.set("n", "<leader>rs", ":LspRestart<ENTER>", opts) -- mapping to restart lsp if necessary
 			end
 
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
