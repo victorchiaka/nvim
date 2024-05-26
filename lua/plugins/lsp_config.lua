@@ -128,6 +128,7 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
@@ -138,6 +139,13 @@ return {
 				on_attach = on_attach,
 				filetypes = { "python" },
 			})
+
+			lspconfig.pylyzer.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "python" },
+			})
+
 			lspconfig.svelte.setup({
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)

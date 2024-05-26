@@ -32,6 +32,7 @@ return {
 				"tsserver",
 				"pyright",
 				"ruff_lsp",
+				"pylyzer",
 				"svelte",
 				"volar",
 				"astro",
@@ -57,7 +58,7 @@ return {
 				"ruff",
 				"isort",
 				"pylint",
-				"debugpy"
+				"debugpy",
 			},
 		})
 	end,
