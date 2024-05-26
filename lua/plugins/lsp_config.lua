@@ -127,6 +127,16 @@ return {
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				filetypes = {
+					"javascript",
+					"javascriptreact",
+					"javascript.jsx",
+					"typescript",
+					"typescript.tsx",
+					"typescriptreact",
+					"vue",
+					"svelte",
+				},
 			})
 
 			lspconfig.pyright.setup({
@@ -160,6 +170,8 @@ return {
 			})
 			lspconfig.volar.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "vue" },
 			})
 			lspconfig.astro.setup({
 				capabilities = capabilities,
