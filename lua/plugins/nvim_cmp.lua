@@ -4,10 +4,9 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"L3MON4D3/LuaSnip", -- snippet engine
+		"L3MON4D3/LuaSnip",       -- snippet engine
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets",
-		{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -15,14 +14,10 @@ return {
 
 		-- loads vscode style snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
-			},
-			formatting = {
-				format = function(entry, item)
-					return require("tailwindcss-colorizer-cmp").formatter(entry, item)
-				end,
 			},
 
 			snippet = {
@@ -41,8 +36,8 @@ return {
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 
-				["<C-Space>"] = cmp.mapping.complete(), -- Show completion window
-				["<C-e>"] = cmp.mapping.abort(), -- Close completion window
+				["<C-Space>"] = cmp.mapping.complete(),        -- Show completion window
+				["<C-e>"] = cmp.mapping.abort(),               -- Close completion window
 				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			}),
 
