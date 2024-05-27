@@ -32,7 +32,6 @@ return {
 				"tsserver",
 				"pyright",
 				"ruff_lsp",
-				"pylyzer",
 				"svelte",
 				"volar",
 				"astro",

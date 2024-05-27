@@ -35,7 +35,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-cmdline",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/neodev.nvim",                   opts = {} },
 		},
 		lazy = false,
 
@@ -145,12 +145,6 @@ return {
 				filetypes = { "python" },
 			})
 			lspconfig.ruff_lsp.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				filetypes = { "python" },
-			})
-
-			lspconfig.pylyzer.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "python" },
