@@ -21,7 +21,10 @@ require("lazy").setup("plugins")
 
 local builtin = require("telescope.builtin")
 
-cmd([[colorscheme gruvbox]])
+-- cmd([[colorscheme gruvbox]]) -- to set gruvbox theme
+
+-- From this section to setup vscode theme
+cmd([[colorscheme vscode]])
 
 return {
   builtin = builtin,
