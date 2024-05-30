@@ -10,9 +10,10 @@ return {
         buffer_close_icon = "",
         close_command = "bdelete %d",
         close_icon = "",
+        diagnostics = "coc", -- for coc diagnostics
         indicator = {
           style = "icon",
-          icon = " ",
+          icon = "|",
         },
         left_trunc_marker = "",
         modified_icon = "●",
@@ -74,7 +75,6 @@ return {
       },
 
       -- Setting up diagnostics
-      diagnostics = "coc",
       --- count is an integer representing total count of errors
       --- level is a string "error" | "warning"
       --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
