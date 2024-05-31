@@ -1,3 +1,18 @@
 {
-  "svelte.enable-ts-plugin": false, 
+  "svelte.enable-ts-plugin": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "typescript",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "python"
+  ],
+
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black"
 }

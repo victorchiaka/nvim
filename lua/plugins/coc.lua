@@ -85,7 +85,7 @@ M.config = function()
 
 	-- Formatting selected code
 	-- keyset("x", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
-	keyset("n", "<leader>v", "<Plug>(coc-format-selected)", { silent = true })
+	keyset("n", "<leader>sf", "<Plug>(coc-format-selected)", { silent = true })
 
 	-- Setup formatexpr specified filetype(s)
 	vim.api.nvim_create_autocmd("FileType", {
