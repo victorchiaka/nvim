@@ -4,4 +4,9 @@ return {
   config = true,
   -- use opts = {} for passing setup options
   -- this is equalent to setup({}) function
+  config = function()
+    require("nvim-autopairs").setup({
+      map_cr = false
+    })
+  end
 }

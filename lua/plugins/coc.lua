@@ -41,6 +41,7 @@ M.config = function()
 	keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
 
+
 	-- Use <c-j> to trigger snippets
 	-- keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
 	-- Use <c-space> to trigger completion
