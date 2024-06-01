@@ -40,8 +40,6 @@ M.config = function()
 	-- <C-g>u breaks current undo, please make your own choice
 	keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
-
-
 	-- Use <c-j> to trigger snippets
 	-- keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
 	-- Use <c-space> to trigger completion
@@ -186,6 +184,8 @@ M.config = function()
 	keyset("n", "<leader>k", ":<C-u>CocPrev<cr>", opts)
 	-- Resume latest coc list
 	keyset("n", "<leader>p", ":<C-u>CocListResume<cr>", opts)
+	-- Coc restarts server
+	keyset("n", "<leader>rs", ":<C-u>CocRestart<cr>", opts)
 end
 
 return M
