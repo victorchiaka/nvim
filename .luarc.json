@@ -1,5 +1,11 @@
 {
     "diagnostics.globals": [
-        "vim"
+        "vim",
+        "eng",
+        "return"
+    ],
+    "diagnostics.disable": [
+        "undefined-global",
+        "lowercase-global"
     ]
 }

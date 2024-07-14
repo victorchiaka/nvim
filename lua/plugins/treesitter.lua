@@ -22,6 +22,8 @@ return {
 				"bash",
 				"vim",
 				"cpp",
+				"dart",
+				"prisma"
 			},
 			filetypes = {
 				"html",
@@ -41,6 +43,8 @@ return {
 				"glimmer",
 				"handlebars",
 				"hbs",
+				"dart",
+				"prisma"
 			},
 			-- auto_install = true, -- To auto install parser for any language
 			sync_install = true,

@@ -1,6 +1,7 @@
 local set = vim.opt
 local g = vim.g
 local keymap = vim.keymap
+local buf = vim.lsp.buf
 
 g.mapleader = ","
 g.maplocalleader = ","
@@ -28,4 +29,11 @@ keymap.set("n", "<leader>g", builtin.live_grep, {})
 keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<ENTER>")
 keymap.set("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
 
+-- Nvim cmp shortcuts
+keymap.set('n', 'gd', buf.definition, opts)
+keymap.set('n', '<C-k>', buf.signature_help, {})
+keymap.set('n', 'gi', buf.implementation, {})
+keymap.set('n', '<leader>rn', buf.rename, {})
+
 keymap.set("n", "<leader>v", ":Format<ENTER>", {}) -- Works with any formatter installed
+
