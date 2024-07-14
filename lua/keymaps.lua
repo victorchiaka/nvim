@@ -35,5 +35,4 @@ keymap.set('n', '<C-k>', buf.signature_help, {})
 keymap.set('n', 'gi', buf.implementation, {})
 keymap.set('n', '<leader>rn', buf.rename, {})
 
-keymap.set("n", "<leader>v", ":Format<ENTER>", {}) -- Works with any formatter installed
-
+-- keymap.set('n', "<leader>v", buf.format, {}) -- Works with any formatter installed

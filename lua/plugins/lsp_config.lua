@@ -1,20 +1,20 @@
 return {
   {
-  "williamboman/mason.nvim",
-  config = function()
-    require("mason").setup({
-      ui = {
-        icons = {
-          package_installed = "✅",
-          package_pending = "⏳",
-          package_uninstalled = "❌"
-        }
-      }
-    })
-  end
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup({
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "⚡︎",
+            package_uninstalled = "✗",
+          },
+        },
+      })
+    end,
   },
   {
-    "williamboman/mason-lspconfig.nvim", 
+    "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -25,11 +25,13 @@ return {
           "tailwindcss",
           "emmet_ls",
           "volar",
-          "svelte"
+          "svelte",
+          "astro",
+          "pyright",
         },
-        automatic_installation = true
+        automatic_installation = true,
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -43,18 +45,19 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.tsserver.setup({})
 
-      local cmp_nvim_lsp  = require("cmp_nvim_lsp")
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
       local keymap = vim.keymap
 
       local opts = { noremap = true, silent = true }
       local on_attach = function(client, bufnr)
-        opts.buffer = bufnr 
+        opts.buffer = bufnr
         local buf = vim.lsp.buf
 
-        keymap.set('n', 'gr', buf.references, opts)
+        keymap.set("n", "gr", "<cmd>Telescope lsp_references<ENTER>", opts)
+        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<ENTER>", opts)
         keymap.set("n", "K", buf.hover, opts)
-        keymap.set('n', '<leader>D', buf.type_definition, opts)
+        keymap.set("n", "gt", buf.type_definition, opts)
         keymap.set("n", "<leader>ca", buf.code_action, opts)
         keymap.set("n", "<leader>rs", ":LspRestart<ENTER>", opts)
       end
@@ -66,45 +69,45 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
+      -- configure lua server (with special settings)
+      lspconfig["lua_ls"].setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" },
+            },
+            completion = {
+              callSnippet = "Replace",
             },
           },
-        })
+        },
+      })
 
       lspconfig["tsserver"].setup({
         on_attach = on_attach,
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       lspconfig["html"].setup({
         on_attach = on_attach,
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       lspconfig["css"].setup({
         on_attach = on_attach,
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       lspconfig["tailwindcss"].setup({
         on_attach = on_attach,
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       lspconfig["emmet_ls"].setup({
         on_attach = on_attach,
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       lspconfig["volar"].setup({
@@ -118,15 +121,29 @@ return {
           "sass",
           "less",
           "svelte",
-          "vue"
-        }
+          "vue",
+        },
       })
 
       lspconfig["svelte"].setup({
         on_attach = on_attach,
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
-    end
-  }
+      lspconfig["volar"].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+
+      lspconfig["astro"].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+
+      lspconfig["pyright"].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+    end,
+  },
 }
