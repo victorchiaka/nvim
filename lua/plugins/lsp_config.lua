@@ -95,7 +95,7 @@ return {
         capabilities = capabilities,
       })
 
-      lspconfig["css"].setup({
+      lspconfig["cssls"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
       })
