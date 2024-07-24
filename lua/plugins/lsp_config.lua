@@ -24,6 +24,7 @@ return {
           "cssls",
           "tailwindcss",
           "emmet_ls",
+          "emmet_language_server",
           "volar",
           "svelte",
           "astro",
@@ -43,7 +44,6 @@ return {
 
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({})
 
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -108,9 +108,19 @@ return {
       lspconfig["emmet_ls"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
+        filetypes = {
+          "html",
+          "typescriptreact",
+          "javascriptreact",
+          "css",
+          "sass",
+          "less",
+          "svelte",
+          "vue",
+        },
       })
 
-      lspconfig["volar"].setup({
+      lspconfig["emmet_language_server"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
         filetypes = {
@@ -124,6 +134,7 @@ return {
           "vue",
         },
       })
+
 
       lspconfig["svelte"].setup({
         on_attach = on_attach,

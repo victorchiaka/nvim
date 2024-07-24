@@ -3,10 +3,10 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for text in paths
+    "hrsh7th/cmp-path",   -- source for text in paths
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets"
+    "hrsh7th/cmp-nvim-lsp"
   },
   config = function()
     local cmp = require("cmp")
@@ -15,7 +15,10 @@ return {
     -- loads vscode type snippets from friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
     cmp.setup({
-      completeopt = {"menu,menuone,preview,noselect"},
+      completion = {
+        autocomplete = { require('cmp.types').cmp.TriggerEvent.InsertEnter, require('cmp.types').cmp.TriggerEvent.TextChanged },
+      },
+      completeopt = { "menu,menuone,preview,noselect" },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
