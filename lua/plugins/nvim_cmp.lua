@@ -15,6 +15,11 @@ return {
     -- loads vscode type snippets from friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
     cmp.setup({
+      formatting = {
+        format = function(entry, item)
+          return require("nvim-highlight-colors").format(entry, item)
+        end
+      },
       completion = {
         autocomplete = { require('cmp.types').cmp.TriggerEvent.InsertEnter, require('cmp.types').cmp.TriggerEvent.TextChanged },
       },
