@@ -6,7 +6,7 @@ return {
     priority = 1000,
     config = function()
       return {
-        transparent = true,
+        transparent = false,
       }
     end,
   },
