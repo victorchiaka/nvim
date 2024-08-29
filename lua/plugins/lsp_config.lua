@@ -136,7 +136,6 @@ return {
         },
       })
 
-
       lspconfig["svelte"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
@@ -155,6 +154,11 @@ return {
       lspconfig["pyright"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
+      })
+
+      lspconfig["vuels"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
       })
     end,
   },
