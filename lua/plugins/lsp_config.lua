@@ -26,6 +26,7 @@ return {
           "emmet_ls",
           "emmet_language_server",
           "volar",
+          "vuels",
           "svelte",
           "astro",
           "pyright",
