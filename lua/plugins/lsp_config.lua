@@ -20,7 +20,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "html",
-          "tsserver",
+          "ts_ls",
           "cssls",
           "tailwindcss",
           "emmet_ls",
@@ -86,7 +86,7 @@ return {
         },
       })
 
-      lspconfig["tsserver"].setup({
+      lspconfig["ts_ls"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
       })
