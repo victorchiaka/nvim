@@ -32,6 +32,7 @@ return {
         "typescript",
         "javascriptreact",
         "typescriptreact",
+        "java",
         "svelte",
         "vue",
         "tsx",
