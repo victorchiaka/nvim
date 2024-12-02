@@ -11,13 +11,34 @@ return {
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local lspkind = require("lspkind") -- to add those icons
 
     -- loads vscode type snippets from friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
     cmp.setup({
+      window = {
+        completion = {
+          border = 'rounded', -- Use 'rounded', 'single', or 'double'
+        },
+        documentation = {
+          border = 'rounded', -- Adds border to documentation popup
+        },
+      },
       formatting = {
         format = function(entry, item)
-          return require("nvim-highlight-colors").format(entry, item)
+          if entry.source.name == "nvim_lsp" and item.kind == "Color" then
+            item.menu = "[Color]"
+
+            return require("nvim-highlight-colors").format(entry, item)
+          end
+
+          item = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = 50,
+            ellipsis_char = '...',
+          })(entry, item)
+
+          return item
         end
       },
       completion = {
