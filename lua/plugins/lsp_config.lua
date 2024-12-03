@@ -31,6 +31,7 @@ return {
           "svelte",
           "astro",
           "pyright",
+          "gopls"
         },
         automatic_installation = true,
       })
@@ -174,6 +175,16 @@ return {
       lspconfig["jdtls"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
+      })
+
+      lspconfig["gopls"].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            staticcheck = true, -- Enable additional linters
+          },
+        },
       })
     end,
   },

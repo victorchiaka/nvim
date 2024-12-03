@@ -25,6 +25,7 @@ return {
         "cpp",
         "dart",
         "prisma",
+        "go",
       },
       filetypes = {
         "html",
@@ -47,6 +48,7 @@ return {
         "hbs",
         "dart",
         "prisma",
+        "go",
       },
 
       -- auto_install = true, -- To auto install parser for any language
