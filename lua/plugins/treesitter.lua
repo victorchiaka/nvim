@@ -28,9 +28,12 @@ return {
         "go",
       },
       filetypes = {
+        "c",
+        "lua",
         "html",
         "javascript",
         "typescript",
+        "python",
         "javascriptreact",
         "typescriptreact",
         "java",
