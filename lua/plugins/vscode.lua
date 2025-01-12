@@ -7,7 +7,7 @@ return {
       -- style = 'light'
 
       -- Enable transparent background
-      transparent = true,
+      -- transparent = true,
 
       -- Enable italic comment
       italic_comments = false,
