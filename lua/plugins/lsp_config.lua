@@ -31,7 +31,8 @@ return {
           "svelte",
           "astro",
           "pyright",
-          "gopls"
+          "gopls",
+          "prismals"
         },
         automatic_installation = true,
       })
@@ -185,6 +186,11 @@ return {
             staticcheck = true, -- Enable additional linters
           },
         },
+      })
+
+      lspconfig["prismals"].setup({
+        on_attach = on_attach,
+        capabilities = capabilities
       })
     end,
   },
