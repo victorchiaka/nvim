@@ -25,10 +25,15 @@ local builtin = require("telescope.builtin")
 -- cmd([[colorscheme vscode]])
 
 -- From this section to setup solarized osaka theme
-cmd([[colorscheme solarized-osaka]])
+-- cmd([[colorscheme solarized-osaka]])
 
 -- From this section to setup gruvbox theme
 -- cmd([[colorscheme gruvbox]]) -- to set gruvbox theme
+
+-- From this section to setup kanagawa theme
+-- cmd("colorscheme kanagawa-lotus")
+cmd("colorscheme kanagawa-wave") -- default same as cmd("colorscheme kanagawa")
+-- cmd("colorscheme kanagawa-dragon")
 
 return {
   builtin = builtin,
