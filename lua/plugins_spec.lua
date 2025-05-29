@@ -35,6 +35,9 @@ local builtin = require("telescope.builtin")
 cmd("colorscheme kanagawa-wave") -- default same as cmd("colorscheme kanagawa")
 -- cmd("colorscheme kanagawa-dragon")
 
+-- From this section to setup one dark theme
+require("onedark").load()
+
 return {
   builtin = builtin,
 } -- This returns should happen at the end of the file
