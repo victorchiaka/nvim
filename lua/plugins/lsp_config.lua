@@ -27,7 +27,6 @@ return {
           "emmet_ls",
           "emmet_language_server",
           "volar",
-          "vuels",
           "svelte",
           "astro",
           "pyright",
@@ -98,9 +97,34 @@ return {
         },
       })
 
+      -- Let's add vue support
+      local mason_registry = require("mason-registry")
+      local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path() ..
+      "/node_modules/@vue/language-server"
+
       lspconfig["ts_ls"].setup({
+        init_options = {
+          -- Adds the vue language server path as a plugin
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = vue_language_server_path,
+              languages = { "vue" }
+            }
+          }
+        },
         on_attach = on_attach,
         capabilities = capabilities,
+        filetypes = {
+          "html",
+          "typescriptreact",
+          "javascriptreact",
+          "css",
+          "sass",
+          "less",
+          "svelte",
+          "vue",
+        },
       })
 
       lspconfig["html"].setup({
@@ -153,11 +177,6 @@ return {
         capabilities = capabilities,
       })
 
-      lspconfig["volar"].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-      })
-
       lspconfig["astro"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
@@ -166,11 +185,6 @@ return {
       lspconfig["pyright"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
-      })
-
-      lspconfig["vuels"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
       })
 
       lspconfig["jdtls"].setup({
