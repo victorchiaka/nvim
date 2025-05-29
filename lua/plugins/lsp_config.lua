@@ -1,6 +1,8 @@
 return {
   {
     "williamboman/mason.nvim",
+    -- Pin to January 2025 commit (last stable v1.x before v2.0.0 broke things)
+    commit = "e2f7f9044ec30067bc11800a9e266664b88cda22", -- January 15, 2025
     config = function()
       require("mason").setup({
         ui = {
@@ -15,6 +17,8 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    -- Pin to January 2025 commit (before Volar issues started)
+    commit = "2451adb9bdb0fd32140bf3aa8dbc17ff60050735", -- January 20, 2025
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -25,7 +29,6 @@ return {
           "cssls",
           "tailwindcss",
           "emmet_ls",
-          "emmet_language_server",
           "volar",
           "svelte",
           "astro",
@@ -100,7 +103,7 @@ return {
       -- Let's add vue support
       local mason_registry = require("mason-registry")
       local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path() ..
-      "/node_modules/@vue/language-server"
+          "/node_modules/@vue/language-server"
 
       lspconfig["ts_ls"].setup({
         init_options = {
@@ -143,21 +146,6 @@ return {
       })
 
       lspconfig["emmet_ls"].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        filetypes = {
-          "html",
-          "typescriptreact",
-          "javascriptreact",
-          "css",
-          "sass",
-          "less",
-          "svelte",
-          "vue",
-        },
-      })
-
-      lspconfig["emmet_language_server"].setup({
         on_attach = on_attach,
         capabilities = capabilities,
         filetypes = {
