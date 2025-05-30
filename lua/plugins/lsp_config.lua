@@ -24,7 +24,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "html",
-          "ts_ls",
+          "tsserver",
           "jdtls",
           "cssls",
           "tailwindcss",
@@ -105,7 +105,7 @@ return {
       local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path() ..
           "/node_modules/@vue/language-server"
 
-      lspconfig["ts_ls"].setup({
+      lspconfig["tsserver"].setup({
         init_options = {
           -- Adds the vue language server path as a plugin
           plugins = {
