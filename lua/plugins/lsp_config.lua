@@ -12,6 +12,9 @@ return {
             package_uninstalled = "✗",
           },
         },
+        ensure_installed = {
+          "eslint_d"
+        }
       })
     end,
   },
