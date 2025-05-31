@@ -125,6 +125,8 @@ return {
           "html",
           "typescriptreact",
           "javascriptreact",
+          "typescript",
+          "javascript",
           "css",
           "sass",
           "less",
