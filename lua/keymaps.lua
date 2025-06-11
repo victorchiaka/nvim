@@ -26,7 +26,8 @@ keymap.set("n", "<leader>h", ":nohlsearch<ENTER>")
 -- Setting telescope search files and live grep bindings
 keymap.set("n", "<leader>f", builtin.find_files, {})
 keymap.set("n", "<leader>g", builtin.live_grep, {})
-keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<ENTER>")
+-- keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<ENTER>") -- Opens filesystem in left
+keymap.set("n", "<leader>n", ":Neotree filesystem reveal right<ENTER>") -- Opens filesystem in right
 keymap.set("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
 
 -- Nvim cmp shortcuts
