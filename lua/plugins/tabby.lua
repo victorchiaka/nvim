@@ -1,0 +1,87 @@
+return {
+  'nanozuki/tabby.nvim',
+  -- config = function()
+  --   local theme = {
+  --     -- fill = 'TabLineFill',
+  --     fill = { fg = '#f2e9de', bg = '#181818', style = 'italic' },
+  --     head = 'TabLine',
+  --     current_tab = 'TabLineSel',
+  --     tab = 'TabLine',
+  --     win = 'TabLine',
+  --     tail = 'TabLine',
+  --   }
+  --
+  --   require('tabby.tabline').set(function(line)
+  --     return {
+  --       {
+  --         -- { ' Victor  ', hl = theme.head },
+  --         -- line.sep('', theme.head, theme.fill),
+  --         { ' Victor  ', hl = theme.head },
+  --         line.sep('', theme.head, theme.fill),
+  --       },
+  --       line.tabs().foreach(function(tab)
+  --         local hl = tab.is_current() and theme.current_tab or theme.tab
+  --         return {
+  --           -- line.sep('', hl, theme.fill),
+  --           -- tab.is_current() and '●' or '○',
+  --           -- tab.number(),
+  --           -- tab.name(),
+  --           -- tab.close_btn(''),
+  --           -- line.sep('', hl, theme.fill),
+  --           -- hl = hl,
+  --           -- margin = ' ',
+  --           line.sep('', hl, theme.fill),
+  --           line.sep('', hl, theme.fill),
+  --           tab.is_current() and '' or '󰆣',
+  --           tab.number(),
+  --           tab.name(),
+  --           tab.close_btn(''),
+  --           line.sep('', hl, theme.fill),
+  --           hl = hl,
+  --           margin = ' ',
+  --         }
+  --       end),
+  --       line.spacer(),
+  --       line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+  --         return {
+  --           -- line.sep('', theme.win, theme.fill),
+  --           -- win.is_current() and '▶' or '▷',
+  --           -- win.buf_name(),
+  --           -- line.sep('', theme.win, theme.fill),
+  --           -- hl = theme.win,
+  --           -- margin = ' ',
+  --           line.sep('', theme.win, theme.fill),
+  --           win.is_current() and '' or '',
+  --           win.buf_name(),
+  --           line.sep('', theme.win, theme.fill),
+  --           hl = theme.win,
+  --           margin = ' ',
+  --         }
+  --       end),
+  --       line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+  --         -- local modified_indicator = win.buf().is_changed() and ' ●' or '▶' -- ← ADDED: This line
+  --         local modified_indicator = win.buf().is_changed() and '▷' or '▶'
+  --         return {
+  --           line.sep('', theme.win, theme.fill),
+  --           win.is_current() and '' or '',
+  --           win.buf_name(),
+  --           modified_indicator, -- ← ADDED: This line (shows dot for unsaved files)
+  --           line.sep('', theme.win, theme.fill),
+  --           hl = theme.win,
+  --           margin = ' ',
+  --         }
+  --       end),
+  --       {
+  --         -- line.sep('', theme.tail, theme.fill),
+  --         -- { '  ', hl = theme.tail },
+  --         line.sep('', theme.tail, theme.fill),
+  --         { '  ', hl = theme.tail },
+  --       },
+  --       hl = theme.fill,
+  --     }
+  --   end)
+  --
+  --   -- Make Tabby Show @ 2 Tabs
+  --   vim.o.showtabline = 2
+  -- end,
+}
