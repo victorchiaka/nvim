@@ -26,14 +26,22 @@ keymap.set("n", "<leader>h", ":nohlsearch<ENTER>")
 -- Setting telescope search files and live grep bindings
 keymap.set("n", "<leader>f", builtin.find_files, {})
 keymap.set("n", "<leader>g", builtin.live_grep, {})
+keymap.set("n", "<leader>b", builtin.current_buffer_fuzzy_find, {}) -- Current buffer fuzzy
+keymap.set("n", "<leader>fb", builtin.buffers, {}) -- List files opened in the current buffer
+
+keymap.set("n", "gd", builtin.lsp_definitions, opts) -- Go to definition
+keymap.set("n", "gr", builtin.lsp_references, {}) -- Go to or shows all references
+keymap.set("n", "gi", builtin.lsp_implementations, {}) -- Go to or shows all implementations
+keymap.set("n", "gt", builtin.lsp_type_definitions, {}) -- Go to or shows all type defintions
+
+
+
 -- keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<ENTER>") -- Opens filesystem in left
 keymap.set("n", "<leader>n", ":Neotree filesystem reveal right<ENTER>") -- Opens filesystem in right
 keymap.set("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
 
 -- Nvim cmp shortcuts
-keymap.set('n', 'gd', buf.definition, opts)
 keymap.set('n', '<C-k>', buf.signature_help, {})
-keymap.set('n', 'gi', buf.implementation, {})
 keymap.set('n', '<leader>rn', buf.rename, {})
 
 -- keymap.set('n', "<leader>v", buf.format, {}) -- Works with any formatter installed

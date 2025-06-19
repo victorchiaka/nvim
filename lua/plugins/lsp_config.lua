@@ -71,10 +71,7 @@ return {
         opts.buffer = bufnr
         local buf = vim.lsp.buf
 
-        keymap.set("n", "gr", "<cmd>Telescope lsp_references<ENTER>", opts)
-        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<ENTER>", opts)
         keymap.set("n", "K", buf.hover, opts)
-        keymap.set("n", "gt", buf.type_definition, opts)
         keymap.set("n", "<leader>ca", buf.code_action, opts)
         keymap.set("n", "<leader>rs", ":LspRestart<ENTER>", opts)
       end

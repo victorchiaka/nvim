@@ -5,8 +5,8 @@ return {
       render = 'virtual',
 
       -- Switch to any shape i want
-      virtual_symbol = '🟋',
-      -- virtual_symbol = '▲',
+      -- virtual_symbol = '🟋',
+      virtual_symbol = '▲',
       -- virtual_symbol = '◆',
       -- virtual_symbol = '■',
       -- virtual_symbol = '●',
