@@ -48,10 +48,11 @@ local builtin = require("telescope.builtin")
 
 -- From this section to setup gruvbox theme
 -- cmd([[colorscheme gruvbox]]) -- to set gruvbox theme
+cmd([[colorscheme retrobox]]) -- to set retrobox theme
 
 -- From this section to setup kanagawa theme
 -- cmd("colorscheme kanagawa-lotus")
-cmd("colorscheme kanagawa-wave") -- default same as cmd("colorscheme kanagawa")
+-- cmd("colorscheme kanagawa-wave") -- default same as cmd("colorscheme kanagawa")
 -- cmd("colorscheme kanagawa-dragon")
 
 -- From this section to setup one dark theme
