@@ -28,9 +28,9 @@ return {
       },
 
       -- Lualine options --
-      lualine = {
-        transparent = false, -- lualine center bar transparency
-      },
+      -- lualine = {
+      --   transparent = false, -- lualine center bar transparency
+      -- },
 
       -- Custom Highlights --
       colors = {},     -- Override default colors
