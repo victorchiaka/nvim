@@ -35,6 +35,13 @@ keymap.set("n", "gi", builtin.lsp_implementations, {}) -- Go to or shows all imp
 keymap.set("n", "gt", builtin.lsp_type_definitions, {}) -- Go to or shows all type defintions
 
 
+-- Make resizing easier
+keymap.set('n', '<C-Up>', ':resize -2<CR>', { silent = true })
+keymap.set('n', '<C-Down>', ':resize +2<CR>', { silent = true })
+keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { silent = true })
+keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { silent = true })
+keymap.set('n', '<leader>we', '<C-w>=', { desc = 'Window equal' }) -- makes window equal
+
 
 -- keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<ENTER>") -- Opens filesystem in left
 keymap.set("n", "<leader>n", ":Neotree filesystem reveal right<ENTER>") -- Opens filesystem in right

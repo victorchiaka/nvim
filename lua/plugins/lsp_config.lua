@@ -77,19 +77,63 @@ return {
       end
 
       local capabilities = cmp_nvim_lsp.default_capabilities()
-      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 
+      -- Plane round icons
+      -- local signs = {
+      --   Error = "●",
+      --   Warn = "●",
+      --   Hint = "●",
+      --   Info = "●"
+      -- }
+
+      -- With Emoji
+      -- local signs = {
+      --   Error = "✖",
+      --   Warn = "⚠",
+      --   Hint = "💡",
+      --   Info = "ℹ"
+      -- }
+
+      -- Flashy icons
+      local signs = {
+        Error = "✘",
+        Warn = "▲",
+        Hint = "⚑",
+        Info = "●"
+      }
+
+      -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+
+      -- New approach but buggy
       -- Diagnostics signs
+      -- vim.diagnostic.config({
+      --   signs = {
+      --     text = {
+      --       [vim.diagnostic.severity.ERROR] = signs.Error,
+      --       [vim.diagnostic.severity.WARN] = signs.Warn,
+      --       [vim.diagnostic.severity.HINT] = signs.Hint,
+      --       [vim.diagnostic.severity.INFO] = signs.Info,
+      --     },
+      --     linehl = {},
+      --     numhl = {},
+      --   },
+      --   update_in_insert = false,
+      --   severity_sort = true,
+      -- });
+
+      -- Deprecated approach but works perfectly
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
+
+      -- Then configure diagnostics without the signs.text
       vim.diagnostic.config({
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = signs.Error,
-            [vim.diagnostic.severity.WARN] = signs.Warn,
-            [vim.diagnostic.severity.HINT] = signs.Hint,
-            [vim.diagnostic.severity.INFO] = signs.Info,
-          }
-        }
-      });
+        signs = true, -- Just enable signs, don't specify text here
+        -- underline = true,
+        update_in_insert = false,
+        severity_sort = false,
+      })
 
       -- configure lua server (with special settings)
       lspconfig["lua_ls"].setup({
