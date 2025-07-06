@@ -52,3 +52,16 @@ keymap.set('n', '<C-k>', buf.signature_help, {})
 keymap.set('n', '<leader>rn', buf.rename, {})
 
 -- keymap.set('n', "<leader>v", buf.format, {}) -- Works with any formatter installed
+
+-- Text move
+keymap.set("n", "<C-j>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
+keymap.set("n", "<C-k>", ":m .-2<CR>==", { desc = "Move line up", silent = true })
+-- INSERT mode: Move line up/down (and stay in insert mode)
+keymap.set("i", "<C-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down", silent = true })
+keymap.set("i", "<C-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up", silent = true })
+-- VISUAL mode (line-wise): Move selection up/down
+keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
+keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
+-- VISUAL BLOCK mode: Move selection up/down (like Alt+j/k in some editors)
+keymap.set("x", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move block down", silent = true })
+keymap.set("x", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move block up", silent = true })

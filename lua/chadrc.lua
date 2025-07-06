@@ -29,7 +29,7 @@ M.colorify = {
 M.base46 = {
   -- theme = "kanagawa" -- Default theme from onedark
   -- theme = "gruvbox" -- Default theme from onedark
-  theme = "retrobox" -- Default theme from onedark
+  theme = "kanagawa" -- Default theme from onedark
 }
 
 M.tabufline = {
