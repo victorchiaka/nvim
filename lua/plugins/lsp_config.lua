@@ -99,7 +99,8 @@ return {
         Error = "✘",
         Warn = "▲",
         Hint = "⚑",
-        Info = "●"
+        -- Info = "●"
+        Info = "»"
       }
 
       -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

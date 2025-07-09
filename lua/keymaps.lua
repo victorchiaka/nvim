@@ -27,12 +27,12 @@ keymap.set("n", "<leader>h", ":nohlsearch<ENTER>")
 keymap.set("n", "<leader>f", builtin.find_files, {})
 keymap.set("n", "<leader>g", builtin.live_grep, {})
 keymap.set("n", "<leader>b", builtin.current_buffer_fuzzy_find, {}) -- Current buffer fuzzy
-keymap.set("n", "<leader>fb", builtin.buffers, {}) -- List files opened in the current buffer
+keymap.set("n", "<leader>fb", builtin.buffers, {})                  -- List files opened in the current buffer
 
-keymap.set("n", "gd", builtin.lsp_definitions, opts) -- Go to definition
-keymap.set("n", "gr", builtin.lsp_references, {}) -- Go to or shows all references
-keymap.set("n", "gi", builtin.lsp_implementations, {}) -- Go to or shows all implementations
-keymap.set("n", "gt", builtin.lsp_type_definitions, {}) -- Go to or shows all type defintions
+keymap.set("n", "gd", builtin.lsp_definitions, opts)                -- Go to definition
+keymap.set("n", "gr", builtin.lsp_references, {})                   -- Go to or shows all references
+keymap.set("n", "gi", builtin.lsp_implementations, {})              -- Go to or shows all implementations
+keymap.set("n", "gt", builtin.lsp_type_definitions, {})             -- Go to or shows all type defintions
 
 
 -- Make resizing easier
@@ -65,3 +65,11 @@ keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up", silen
 -- VISUAL BLOCK mode: Move selection up/down (like Alt+j/k in some editors)
 keymap.set("x", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move block down", silent = true })
 keymap.set("x", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move block up", silent = true })
+
+-- VISUAL mode: Indent with Tab and unindent with Shift+Tab
+keymap.set("v", "<Tab>", ">gv", { desc = "Indent selection", silent = true })
+keymap.set("v", "<S-Tab>", "<gv", { desc = "Unindent selection", silent = true })
+
+-- VISUAL BLOCK mode: Same for block selections
+keymap.set("x", "<Tab>", ">gv", { desc = "Indent block", silent = true })
+keymap.set("x", "<S-Tab>", "<gv", { desc = "Unindent block", silent = true })
