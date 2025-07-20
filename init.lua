@@ -11,8 +11,7 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 -- Your other configurations...
-require("jdtls")
-require("autocmds")
+require("java")
 
 -- Options
 vim.opt.clipboard = "unnamedplus"
