@@ -7,7 +7,7 @@ vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 require("plugins_spec")
 
 -- require("base46").load_all_highlights() -- To load all highlights, and the theme - NVChad's beautiful theme
-dofile(vim.g.base46_cache .. "defaults")
+-- dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 

@@ -27,7 +27,7 @@ M.colorify = {
 -- Make sure the theme you choose here matches the one in plugins_spec.lua
 -- This is so the statusline adapts to the theme and there'll be no coloroverlaps between base46 and vim api's colorscheme
 M.base46 = {
-  theme = "kanagawa" -- Default theme from onedark
+  -- theme = "kanagawa" -- Default theme from onedark
   -- theme = "gruvbox" -- Default theme from onedark
   -- theme = "kanagawa" -- Default theme from onedark
   -- theme = "solarized-osaka"
