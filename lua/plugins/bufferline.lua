@@ -2,21 +2,21 @@ return {
   "akinsho/bufferline.nvim",
   version = "*",
   dependencies = "nvim-tree/nvim-web-devicons",
-  enabled = true,    -- Enables or disables bufferline
+  enabled = true, -- Enables or disables bufferline
   config = function()
     vim.opt.termguicolors = true
     -- vim.opt.showtabline = 0
     require("bufferline").setup({
       options = {
-        buffer_close_icon = "",
+        buffer_close_icon = "",
         close_command = "bdelete %d",
-        close_icon = "",
-        diagnostics = "coc",          -- for coc diagnostics
+        close_icon = "",
+        diagnostics = "coc", -- for coc diagnostics
         indicator = {
           style = "icon",
           icon = "|",
         },
-        left_trunc_marker = "",
+        left_trunc_marker = "",
         modified_icon = "●",
         offsets = {
           {
@@ -24,13 +24,18 @@ return {
             filetype = "neo-tree",
             text = "EXPLORER",
             text_align = "center",
-            separator = true
-          }
+            separator = true,
+          },
         },
         right_mouse_command = "bdelete! %d",
-        right_trunc_marker = "",
+        right_trunc_marker = "",
         show_close_icon = false,
         show_tab_indicators = true,
+        -- Move diagnostics_indicator inside options
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+          local icon = level:match("error") and " " or " "
+          return " " .. icon .. count
+        end,
       },
       highlights = {
         fill = {
@@ -74,17 +79,6 @@ return {
           bg = { attribute = "bg", highlight = "Normal" },
         },
       },
-
-      -- Setting up diagnostics
-      --- count is an integer representing total count of errors
-      --- level is a string "error" | "warning"
-      --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
-      --- this should return a string
-      --- Don't get too fancy as this function will be executed a lot
-      diagnostics_indicator = function(count, level, diagnostics_dict, context)
-        local icon = level:match("error") and " " or " "
-        return " " .. icon .. count
-      end
     })
-  end
+  end,
 }
