@@ -1,6 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
 
-require("config.keymaps")
+require("config.mappings")
 require("config.lazy")
 
 -- Loads nvui as PDE starts
