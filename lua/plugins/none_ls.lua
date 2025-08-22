@@ -13,21 +13,6 @@ return {
     -- CONFIGURATION: Change this to switch between modes
     local USE_VIRTUAL_TEXT = false -- Set to true for virtual text, false for floating window
 
-    vim.diagnostic.config({
-      virtual_text = false, -- Always disable default virtual text
-      signs = true,
-      underline = true,
-      update_in_insert = false,
-      float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-      },
-    })
-
     local diagnostic_ns = vim.api.nvim_create_namespace("cursor_line_diagnostics")
 
     -- Set up autocommands for cursor movement

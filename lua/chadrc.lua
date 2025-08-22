@@ -1,7 +1,7 @@
 local M = {}
 
 M.colorify = {
-	enable = false,
+	enable = true,
 }
 
 return M
