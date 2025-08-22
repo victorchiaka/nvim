@@ -36,8 +36,17 @@ return {
 					"gopls",
 					"prismals",
 					"tailwindcss",
+					"vue_ls"
 				},
 				automatic_installation = true,
+
+				-- This block fixes the duplicate LSP client buffer attachment issue
+				automatic_enable = {
+					exclude = {
+						"gopls",
+						"lua_ls"
+					}
+				}
 			})
 
 			local signs = {
