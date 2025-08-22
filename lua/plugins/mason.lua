@@ -30,7 +30,6 @@ return {
           "lua_ls",
           "html",
           "ts_ls",
-          "vue_ls",
           "cssls",
           "tailwindcss",
           "emmet_ls",
@@ -56,22 +55,61 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-      -- Setup servers with blink.cmp capabilities
-      local servers = {
-        lua_ls = {},
-        html = {},
-        ts_ls = {},
-        cssls = {},
-        tailwindcss = {},
-        emmet_ls = {},
-        gopls = {},
-        prismals = {},
-      }
+      lspconfig["lua_ls"].setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+            completion = {
+              callSnippet = "Replace",
+            },
+          },
+        },
+      })
 
-      for server, config in pairs(servers) do
-        config.capabilities = capabilities
-        lspconfig[server].setup(config)
-      end
+      lspconfig["emmet_ls"].setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig["gopls"].setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig["prismals"].setup({
+        capabilities = capabilities,
+      })
+
+      local mason_registry = require("mason-registry")
+      -- Vue support
+      local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path() ..
+          "/node_modules/@vue/language-server"
+
+      lspconfig["ts_ls"].setup({
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = vue_language_server_path,
+              languages = { "vue" }
+            }
+          }
+        },
+        capabilities = capabilities,
+        filetypes = {
+          "typescriptreact",
+          "javascriptreact",
+          "typescript",
+          "javascript",
+          "svelte",
+          "vue",
+        },
+      })
+
+      lspconfig["html"].setup({
+        capabilities = capabilities,
+      })
     end,
   },
   {
@@ -97,7 +135,7 @@ return {
 
       -- Auto-trigger completion (similar to your nvim-cmp config)
       completion = {
-        documentation = { auto_show = true, auto_show_delay_ms = 100 },
+        documentation = { auto_show = true, auto_show_delay_ms = 0 }, -- Trigger's as we type
         trigger = {
           prefetch_on_insert = true,
           show_on_insert_on_trigger_character = true,
