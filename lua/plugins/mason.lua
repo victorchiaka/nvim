@@ -1,6 +1,7 @@
 return {
 	{
 		"mason-org/mason.nvim",
+		tag = "v1.8.0",
 		config = function()
 			require("mason").setup({
 				ui = {
@@ -36,7 +37,7 @@ return {
 					"gopls",
 					"prismals",
 					"tailwindcss",
-					"vue_ls"
+					"vue_ls",
 				},
 				automatic_installation = true,
 
@@ -44,9 +45,9 @@ return {
 				automatic_enable = {
 					exclude = {
 						"gopls",
-						"lua_ls"
-					}
-				}
+						"lua_ls",
+					},
+				},
 			})
 
 			local signs = {

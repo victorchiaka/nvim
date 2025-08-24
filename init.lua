@@ -10,6 +10,8 @@ end
 
 local set = vim.opt
 
+-- vim.cmd("colorscheme solarized-osaka")
+
 -- Options
 set.clipboard = "unnamedplus"
 set.termguicolors = true
