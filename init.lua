@@ -10,7 +10,7 @@ end
 
 local set = vim.opt
 
--- vim.cmd("colorscheme solarized-osaka")
+vim.cmd("colorscheme solarized-osaka")
 
 -- Options
 set.clipboard = "unnamedplus"
