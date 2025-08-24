@@ -80,3 +80,20 @@ map("v", "<S-Tab>", "<gv", { desc = "Unindent selection", silent = true })
 -- VISUAL BLOCK mode: Same for block selections
 map("x", "<Tab>", ">gv", { desc = "Indent block", silent = true })
 map("x", "<S-Tab>", "<gv", { desc = "Unindent block", silent = true })
+
+-- GIT Bidings
+map("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Opens lazy git window", silent = true })
+map("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "[G]it Preview [H]unk", silent = true })
+-- Set a vim motion to <leader> + g + b to view the most recent contributers to the file
+map("n", "<leader>lb", ":Git blame<CR>", { desc = "[G]it [B]lame", silent = true })
+-- Set a vim motion to <leader> + g + <Shift>A to all files changed to the staging area
+map("n", "<leader>gA", ":Git add .<CR>", { desc = "[G]it Add [A]ll", silent = true })
+
+-- Set a vim motion to <leader> + g + a to add the current file and changes to the staging area
+-- map("n", "<leader>ga", "Git add", { desc = "[G]it [A]dd", silent = true })
+
+-- Set a vim motion to <leader> + g + c to commit the current chages
+-- map("n", "<leader>gc", ":Git commit", { desc = "[G]it [C]ommit", silent = true })
+
+-- Set a vim motion to <leader> + g + p to push the commited changes to the remote repository
+-- map("n", "<A-gp>", "Git push", { desc = "[G]it [P]ush", silent = true })
