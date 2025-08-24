@@ -46,6 +46,7 @@ return {
 					exclude = {
 						"gopls",
 						"lua_ls",
+						"emmet_ls"
 					},
 				},
 			})
