@@ -22,7 +22,6 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		-- tag = "v1.3.0",
-		tag = "v1.8.0",
 		dependencies = {
 			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",
