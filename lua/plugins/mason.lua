@@ -2,6 +2,7 @@ return {
 	{
 		"mason-org/mason.nvim",
 		tag = "v1.8.0",
+		-- tag = "v1.3.0",
 		config = function()
 			require("mason").setup({
 				ui = {
@@ -20,6 +21,8 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
+		-- tag = "v1.3.0",
+		tag = "v1.8.0",
 		dependencies = {
 			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",
@@ -32,7 +35,6 @@ return {
 					"html",
 					"ts_ls",
 					"cssls",
-					"tailwindcss",
 					"emmet_ls",
 					"gopls",
 					"prismals",
@@ -46,7 +48,7 @@ return {
 					exclude = {
 						"gopls",
 						"lua_ls",
-						"emmet_ls"
+						"emmet_ls",
 					},
 				},
 			})
@@ -114,8 +116,6 @@ return {
 				},
 				capabilities = capabilities,
 				filetypes = {
-					"typescriptreact",
-					"javascriptreact",
 					"typescript",
 					"javascript",
 					"svelte",
@@ -125,45 +125,10 @@ return {
 
 			lspconfig["html"].setup({
 				capabilities = capabilities,
+				filetypes = {
+					"html",
+				},
 			})
 		end,
-	},
-	{
-		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets" },
-		version = "1.*",
-		opts = {
-			-- Custom keymap to match your nvim-cmp bindings
-			keymap = {
-				preset = "none",
-				["<C-k>"] = { "select_prev", "fallback" },
-				["<C-j>"] = { "select_next", "fallback" },
-				["<C-b>"] = { "scroll_documentation_up", "fallback" },
-				["<C-f>"] = { "scroll_documentation_down", "fallback" },
-				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-				["<C-e>"] = { "hide" },
-				["<CR>"] = { "accept", "fallback" },
-			},
-
-			appearance = {
-				nerd_font_variant = "mono",
-			},
-
-			-- Auto-trigger completion (similar to your nvim-cmp config)
-			completion = {
-				documentation = { auto_show = true, auto_show_delay_ms = 0 }, -- Trigger's as we type
-				trigger = {
-					prefetch_on_insert = true,
-					show_on_insert_on_trigger_character = true,
-				},
-			},
-
-			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
-			},
-
-			fuzzy = { implementation = "prefer_rust_with_warning" },
-		},
-		opts_extend = { "sources.default" },
 	},
 }

@@ -25,7 +25,18 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "default" },
+		keymap = {
+			-- preset = "default",
+			preset = "none",
+			["<C-Space>"] = { "show", "fallback" },
+			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-j>"] = { "select_next", "fallback" },
+			["<C-b>"] = { "scroll_documentation_up", "fallback" },
+			["<C-f>"] = { "scroll_documentation_down", "fallback" },
+			["<C-n>"] = { "show", "show_documentation", "hide_documentation" },
+			["<C-e>"] = { "hide" },
+			["<CR>"] = { "accept", "fallback" },
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -37,6 +48,14 @@ return {
 		-- signature = { enable = true }, -- Buggy for now
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 0,
+			},
+			trigger = {
+				prefetch_on_insert = true,
+				show_on_insert_on_trigger_character = true,
+			},
 			menu = {
 				border = "rounded",
 				draw = {
@@ -48,7 +67,10 @@ return {
 								local icon = ctx.kind_icon
 								-- if LSP source, check for color derived from documentation
 								if ctx.item.source_name == "LSP" then
-									local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+									local color_item = require("nvim-highlight-colors").format(
+										ctx.item.documentation,
+										{ kind = ctx.kind }
+									)
 									if color_item and color_item.abbr ~= "" then
 										icon = color_item.abbr
 									end
@@ -60,7 +82,10 @@ return {
 								local highlight = "BlinkCmpKind" .. ctx.kind
 								-- if LSP source, check for color derived from documentation
 								if ctx.item.source_name == "LSP" then
-									local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+									local color_item = require("nvim-highlight-colors").format(
+										ctx.item.documentation,
+										{ kind = ctx.kind }
+									)
 									if color_item and color_item.abbr_hl_group then
 										highlight = color_item.abbr_hl_group
 									end
@@ -71,7 +96,6 @@ return {
 					},
 				},
 			},
-			documentation = { auto_show = true },
 		},
 
 		-- Default list of enabled providers defined so that you can extend it
