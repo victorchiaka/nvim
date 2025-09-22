@@ -48,6 +48,7 @@ return {
 						"gopls",
 						"lua_ls",
 						"emmet_ls",
+						"ts_ls"
 					},
 				},
 			})
