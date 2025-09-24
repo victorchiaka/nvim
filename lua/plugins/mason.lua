@@ -48,7 +48,8 @@ return {
 						"gopls",
 						"lua_ls",
 						"emmet_ls",
-						"ts_ls"
+						"ts_ls",
+						"vue_ls",
 					},
 				},
 			})
@@ -102,7 +103,7 @@ return {
 			local mason_registry = require("mason-registry")
 			-- Vue support
 			local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-					.. "/node_modules/@vue/language-server"
+				.. "/node_modules/@vue/language-server"
 
 			lspconfig["ts_ls"].setup({
 				init_options = {
@@ -118,6 +119,8 @@ return {
 				filetypes = {
 					"typescript",
 					"javascript",
+					"typescriptreact",
+					"javascriptreact",
 					"svelte",
 					"vue",
 				},

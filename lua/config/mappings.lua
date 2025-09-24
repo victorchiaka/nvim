@@ -8,7 +8,6 @@ g.maplocalleader = ","
 -- Nvim buffer / cmp actions
 map("n", "<C-k>", buf.signature_help, {})
 map("n", "<leader>rn", buf.rename, {})
-map("n", "<leader>v", buf.format, {}) -- Works with any formatter installed
 
 map("n", "K", buf.hover, { noremap = true, silent = true })
 map("n", "<leader>ca", buf.code_action, { noremap = true, silent = true })
@@ -16,7 +15,11 @@ map("n", "<leader>rs", ":LspRestart<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>h", ":nohlsearch<CR>")
 
+local conform = require("config.lazy").conform
 local telescope = require("config.lazy").telescope
+
+-- Conform >> Formatting
+map({ "n", "v" }, "<leader>v", conform.format, {})
 
 -- Nvchad specific
 map("n", "<leader>th", function()
