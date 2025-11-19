@@ -59,7 +59,7 @@ return {
 
 				-- Active/Selected buffer (black background, white text)
 				buffer_selected = {
-					fg = "#ebdbb2", -- white text
+					fg = "#ffffff", -- white text
 					bg = "#000000", -- black background
 					bold = true,
 					italic = false,

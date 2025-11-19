@@ -13,7 +13,7 @@ return {
 
 	opts = {
 		-- extensions_list = { "themes", "terms", "zoxide" },
-		extensions_list = { "themes", "terms"},
+		extensions_list = { "themes", "terms" },
 		extensions = {
 			zoxide = {
 				prompt_title = "[ Walking on the shoulders of TJ ]",
@@ -51,4 +51,3 @@ return {
 		end,
 	},
 }
-
