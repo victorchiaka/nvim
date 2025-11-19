@@ -20,6 +20,11 @@ return {
 		end,
 	},
 	{
+		"mfussenegger/nvim-jdtls",
+		-- lazy = true,
+		ft = "java",
+	},
+	{
 		"mason-org/mason-lspconfig.nvim",
 		-- tag = "v1.3.0",
 		dependencies = {
@@ -38,6 +43,7 @@ return {
 					"prismals",
 					"tailwindcss",
 					"vue_ls",
+					"jdtls",
 				},
 				automatic_installation = true,
 
@@ -49,6 +55,8 @@ return {
 						"emmet_ls",
 						"ts_ls",
 						"vue_ls",
+						"cssls",
+						"jdtls",
 					},
 				},
 			})
@@ -98,6 +106,14 @@ return {
 			})
 
 			lspconfig["tailwindcss"].setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig["cssls"].setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig["jdtls"].setup({
 				capabilities = capabilities,
 			})
 

@@ -11,7 +11,7 @@ local telescope = require("config.lazy").telescope
 local opts = { noremap = true, silent = true }
 
 -- Conform >> Formatting
-map({ "n", "v" }, "<leader>v", conform.format, {})
+map({ "n", "v" }, "<leader>v", conform.format, { noremap = true, silent = true })
 
 -- Nvim buffer / cmp actions
 map("n", "<C-k>", buf.signature_help, {})
@@ -23,7 +23,7 @@ map("n", "<leader>rs", ":LspRestart<CR>", { noremap = true, silent = true })
 
 map("n", "<leader>h", ":nohlsearch<CR>")
 
-map("n", "<leader>n", ":Neotree filesystem reveal right<ENTER>")
+map("n", "<leader>n", ":Neotree filesystem reveal right<ENTER>", { noremap = true, silent = true })
 map("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
 
 -- Search files & Live grep
