@@ -3,7 +3,8 @@ require("config.lazy")
 
 local set = vim.opt
 
-vim.cmd("colorscheme tokyonight-night")
+-- vim.cmd("colorscheme tokyonight-night")
+vim.cmd.colorscheme("darkplus")
 
 -- Options
 set.clipboard = "unnamedplus"
