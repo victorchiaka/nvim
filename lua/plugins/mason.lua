@@ -57,6 +57,7 @@ return {
 						"vue_ls",
 						"cssls",
 						"jdtls",
+						"prismals",
 					},
 				},
 			})
