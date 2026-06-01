@@ -1,10 +1,10 @@
-local g = vim.g
 local buf = vim.lsp.buf
 local map = vim.keymap.set
 
 local opts = { noremap = true, silent = true }
 
 local telescope = require("telescope.builtin")
+local conform = require("conform")
 
 map("n", "<leader>n", ":Neotree filesystem reveal<ENTER>", opts)
 map("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
@@ -17,11 +17,8 @@ map("n", "<leader>g", telescope.live_grep, {})
 map("n", "<leader>b", telescope.current_buffer_fuzzy_find, {})
 map("n", "<leader>fb", telescope.buffers, {}) -- Find files in the buffer list
 
--- Remapping comments
-map("n", "<leader>gcc", "gcc", { remap = true, desc = "Comment line" })
-map("v", "<leader>gc", "gc", { remap = true, desc = "Comment selection" })
-map("n", "<leader>gb", "gc", { remap = true, desc = "Block comment" })
-map("v", "<leader>gb", "gc", { remap = true, desc = "Block comment selection" })
+-- Formatting with conform
+map({ "n", "v" }, "<leader>v", conform.format, { noremap = true, silent = true })
 
 -- Resizing window
 map("n", "<C-Up>", ":resize -2<CR>", { silent = true })
