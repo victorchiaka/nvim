@@ -9,6 +9,13 @@ local conform = require("conform")
 map("n", "<leader>n", ":Neotree filesystem reveal<ENTER>", opts)
 map("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
 
+-- Very important and urgent
+map("n", "<leader>cpr", ":lua vim.lsp.document_color.color_presentation()<ENTER>", {
+	silent = true,
+	noremap = true,
+	desc = "Change color presentations like in VSCode e.g from rgba to hex to hsl and so on",
+})
+
 map("n", "<leader>rn", buf.rename, {})
 map("n", "<leader>ca", buf.code_action, { noremap = true, silent = true })
 
