@@ -7,12 +7,7 @@ return {
     config = function()
         local treesitter = require("nvim-treesitter")
         treesitter.setup({
-            -- auto_install = true,
             install_dir = vim.fn.stdpath("data") .. "/site",
-            -- auto_install = true, -- To auto install parser for any language
-            -- sync_install = true,
-            -- highlight = { enable = true },
-            -- indent = { enable = true },
         })
         treesitter.install({
             "c",

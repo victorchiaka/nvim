@@ -1,5 +1,5 @@
 return {
-    cmd = { vim.fn.exepath("tailwindcss-language-server"), "--stdio" },
+    cmd = { vim.fn.exepath("emmet-ls"), "--stdio" },
     filetypes = {
         "html",
         "css",
@@ -9,6 +9,7 @@ return {
         "typescript",
         "typescriptreact",
         "vue",
+        "svelte",
     },
-    root_markers = { "tailwind.config.js", "tailwind.config.ts", "tailwind.config.cjs", "package.json", ".git" },
+    root_markers = { "package.json", ".git" },
 }

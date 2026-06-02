@@ -9,6 +9,8 @@ return {
             ["<CR>"] = { "accept", "fallback" },
             ["<C-k>"] = { "select_prev", "fallback" },
             ["<C-j>"] = { "select_next", "fallback" },
+            ["<Up>"] = { "select_prev", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
         },
         appearance = {
             nerd_font_variant = "mono",
@@ -27,7 +29,7 @@ return {
             menu = { border = "rounded" },
             documentation = {
                 auto_show = true,
-                window = { border = "rounded" }
+                window = { border = "rounded" },
             },
         },
         fuzzy = { implementation = "prefer_rust_with_warning" },

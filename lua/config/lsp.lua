@@ -4,6 +4,12 @@ vim.lsp.enable({
     "ts_ls",
     "svelte",
     "vue_ls",
+    "html",
+    "cssls",
+    "gopls",
+    "prismals",
+    "emmet_ls",
+    "jdtls",
 })
 
 vim.diagnostic.config({
@@ -43,4 +49,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         vim.lsp.buf.format({ async = false })
     end,
+})
+
+--[[
+Symbols for my color indicator
+    '󱓻'
+    '🟋'
+    '▲'
+    '◆'
+    '■'
+    '●'
+]]
+vim.lsp.document_color.enable(true, nil, {
+    style = "󱓻 ",
 })
