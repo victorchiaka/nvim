@@ -8,13 +8,11 @@ require("config.lazy")
 require("config.mappings")
 require("config.lsp")
 
-
 vim.cmd.colorscheme("kanagawa")
 
 set.clipboard = "unnamedplus"
 set.termguicolors = true
 set.numberwidth = 2
-set.number = true
 set.relativenumber = true
 set.wrap = false
 set.smartindent = true
