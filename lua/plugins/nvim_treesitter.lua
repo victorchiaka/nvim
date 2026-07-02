@@ -36,7 +36,11 @@ return {
         vim.api.nvim_create_autocmd("FileType", {
             pattern = { "*" },
             callback = function()
-                vim.treesitter.start()
+                local ft = vim.bo.filetype
+                local lang = vim.treesitter.language.get_lang(ft) or ft
+                if vim.treesitter.language.add(lang) then
+                    vim.treesitter.start()
+                end
             end,
         })
     end,
