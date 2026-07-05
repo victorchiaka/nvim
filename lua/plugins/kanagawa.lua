@@ -2,7 +2,9 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		config = function()
-			require("kanagawa").setup({
+			local kanagawa = require("kanagawa")
+
+			kanagawa.setup({
 				compile = false,
 				undercurl = true,
 				commentStyle = { italic = true },

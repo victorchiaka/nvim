@@ -2,7 +2,8 @@ return {
     {
         "mason-org/mason.nvim",
         config = function()
-            require("mason").setup({ PATH = "prepend" })
+            local mason = require("mason")
+            mason.setup({ PATH = "prepend" })
         end,
     },
     {

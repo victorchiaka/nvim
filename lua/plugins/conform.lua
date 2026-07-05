@@ -7,7 +7,8 @@ return {
             async = false,
             timeout_ms = 200,
         }
-        require("conform").setup({
+        local conform = require("conform")
+        conform.setup({
             formatters_by_ft = {
                 javascript = { "prettierd" },
                 typescript = { "prettierd" },
