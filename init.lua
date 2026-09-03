@@ -7,6 +7,7 @@ g.maplocalleader = ","
 require("config.lazy")
 require("config.mappings")
 require("config.lsp")
+require("config.treesitter")
 
 vim.cmd.colorscheme("kanagawa")
 
