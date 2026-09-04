@@ -2,7 +2,13 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     dependencies = { "rafamadriz/friendly-snippets" },
+
     opts = {
+        -- Stops blink from working on python files
+        enabled = function()
+            return vim.bo.filetype ~= "python"
+        end,
+        
         keymap = {
             preset = "none",
             ["<C-Space>"] = { "show", "fallback" },

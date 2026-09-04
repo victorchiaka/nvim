@@ -16,7 +16,8 @@ local function run_sequential(action_name, action_fn, lang_list, on_done)
 		if not lang then
 			vim.notify(
 				action_name .. " complete",
-				vim.log.levels.INFO, { title = "nvim-treesitter" }
+				vim.log.levels.INFO,
+				{ title = "nvim-treesitter" }
 			)
 			if on_done then on_done() end
 			return
@@ -41,7 +42,6 @@ local function run_sequential(action_name, action_fn, lang_list, on_done)
 	step(1)
 end
 
--- install missing parsers on startup
 local installed = treesitter.get_installed()
 local to_install = vim.iter(langs)
 	:filter(function(lang) return not vim.tbl_contains(installed, lang) end)
@@ -52,14 +52,12 @@ if #to_install > 0 then
 	run_sequential("Install", function(lang) return treesitter.install({ lang }) end, to_install)
 end
 
--- notified :TSUpdate replacement
 vim.api.nvim_create_user_command("TSUpdateAll", function()
 	local all_installed = treesitter.get_installed()
 	vim.notify("Updating: " .. table.concat(all_installed, ", "), vim.log.levels.INFO, { title = "nvim-treesitter" })
 	run_sequential("Update", function(lang) return treesitter.update({ lang }) end, all_installed)
 end, {})
 
--- notified :TSUninstall replacement, e.g. :TSUninstallNotify go dart
 vim.api.nvim_create_user_command("TSUninstallNotify", function(opts)
 	local targets = opts.fargs
 	vim.notify("Uninstalling: " .. table.concat(targets, ", "), vim.log.levels.INFO, { title = "nvim-treesitter" })
