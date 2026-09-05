@@ -6,13 +6,13 @@ return {
             {
                 filter = {
                     event = "msg_show",
-                    -- any = {
-                    --   { find = "sign_define.*deprecated" },
-                    --   { find = "vim%.fn%.sign_define.*deprecated" },
-                    --   { find = "vim%.lsp%.util%.make_position_params.*deprecated" }, -- Add this
-                    --   { find = "vim%.lsp%.util%.jump_to_location.*deprecated" }, -- Add this too
-                    --   { find = "deprecated" }, -- Or this more general one to catch all deprecation warnings
-                    -- },
+                    any = {
+                      { find = "sign_define.*deprecated" },
+                      { find = "vim%.fn%.sign_define.*deprecated" },
+                      { find = "vim%.lsp%.util%.make_position_params.*deprecated" },
+                      { find = "vim%.lsp%.util%.jump_to_location.*deprecated" },
+                      { find = "deprecated" },
+                    },
                 },
                 opts = { skip = true },
             },
