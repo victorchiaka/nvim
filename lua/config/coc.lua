@@ -1,4 +1,4 @@
-vim.g.coc_global_extensions = { "coc-pyright" }
+vim.g.coc_global_extensions = { "coc-pyright", "@yaegassy/coc-black-formatter" }
 
 local function check_back_space()
     local col = vim.fn.col(".") - 1
@@ -31,15 +31,18 @@ vim.api.nvim_create_autocmd("FileType", {
         keyset("i", "<CR>",
             [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], expr_bufopts)
 
+        local plugopts = { buffer = ev.buf, silent = true, remap = true }
+
         -- Buffer-local LSP / navigation keymaps for coc
-        keyset("n", "gd", "<Plug>(coc-definition)", bufopts)
-        keyset("n", "gy", "<Plug>(coc-type-definition)", bufopts)
-        keyset("n", "gi", "<Plug>(coc-implementation)", bufopts)
-        keyset("n", "gr", "<Plug>(coc-references)", bufopts)
+        keyset("n", "gd", "<Plug>(coc-definition)", plugopts)
+        keyset("n", "gy", "<Plug>(coc-type-definition)", plugopts)
+        keyset("n", "gi", "<Plug>(coc-implementation)", plugopts)
+        keyset("n", "gr", "<Plug>(coc-references)", plugopts)
         keyset("n", "K", "<Cmd>call CocActionAsync('doHover')<CR>", bufopts)
-        keyset("n", "<leader>rn", "<Plug>(coc-rename)", bufopts)
-        keyset("n", "<leader>ca", "<Plug>(coc-codeaction-cursor)", bufopts)
-        keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", bufopts)
-        keyset("n", "]g", "<Plug>(coc-diagnostic-next)", bufopts)
+        keyset("n", "<leader>rn", "<Plug>(coc-rename)", plugopts)
+        keyset("n", "<leader>ca", "<Plug>(coc-codeaction-cursor)", plugopts)
+        keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", plugopts)
+        keyset("n", "]g", "<Plug>(coc-diagnostic-next)", plugopts)
+        keyset("n", "<leader>rs", "<Cmd>CocRestart<CR>", bufopts)
     end,
 })

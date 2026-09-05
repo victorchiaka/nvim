@@ -1,9 +1,15 @@
 {
-  "python.analysis.typeCheckingMode": "basic",
-  "python.analysis.inlayHints.functionReturnTypes": false,
-  "python.analysis.inlayHints.variableTypes": false,
-  "python.analysis.inlayHints.callArgumentNames": false,
-  "python.analysis.inlayHints.pytestParameters": false,
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
 
-  "pyright.enable": true
+  "pyright.enable": true,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "python.analysis.typeCheckingMode": "off",
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
+  "python.linting.ruffCategorySeverity.error": "Hint",
+  "python.linting.ruffCategorySeverity.warning": "Hint",
+  "pyright.organizeimports.provider": "ruff"
 }

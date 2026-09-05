@@ -9,6 +9,7 @@ require("config.mappings")
 require("config.lsp")
 require("config.coc")
 require("config.treesitter")
+require("cmd.setup_py")
 
 vim.cmd.colorscheme("kanagawa")
 
