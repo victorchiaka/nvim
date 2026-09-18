@@ -9,6 +9,8 @@ local conform = require("conform")
 map("n", "<leader>n", ":Neotree filesystem reveal<ENTER>", opts)
 map("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
 
+map('n', '<leader>h', ':nohlsearch<CR>', { desc = 'Clear search highlight', silent = true })
+
 -- Very important and urgent
 map("n", "<leader>cpr", ":lua vim.lsp.document_color.color_presentation()<ENTER>", {
 	silent = true,

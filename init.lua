@@ -11,7 +11,7 @@ require("config.coc")
 require("config.treesitter")
 require("cmd.setup_py")
 
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("darkplus")
 
 set.clipboard = "unnamedplus"
 set.termguicolors = true

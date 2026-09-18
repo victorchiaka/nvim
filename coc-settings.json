@@ -11,5 +11,6 @@
   "python.linting.ruffEnabled": true,
   "python.linting.ruffCategorySeverity.error": "Hint",
   "python.linting.ruffCategorySeverity.warning": "Hint",
-  "pyright.organizeimports.provider": "ruff"
+  "pyright.organizeimports.provider": "ruff",
+  "snippets.ultisnips.pythonPrompt": false
 }
