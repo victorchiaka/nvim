@@ -1,5 +1,0 @@
-return {
-    cmd = { vim.fn.exepath("svelteserver"), "--stdio" },
-    filetypes = { "svelte" },
-    root_markers = { "svelte.config.js", "svelte.config.ts", "package.json", ".git" },
-}

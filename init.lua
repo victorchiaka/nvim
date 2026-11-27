@@ -1,33 +1,37 @@
-local set = vim.opt
-local g = vim.g
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = ","
 
-g.mapleader = ","
-g.maplocalleader = ","
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-require("config.lazy")
-require("config.mappings")
-require("config.lsp")
-require("config.coc")
-require("config.treesitter")
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
-vim.cmd.colorscheme("kanagawa")
+vim.opt.rtp:prepend(lazypath)
 
-set.clipboard = "unnamedplus"
-set.termguicolors = true
-set.numberwidth = 2
-set.relativenumber = true
-set.wrap = false
-set.smartindent = true
-set.breakindent = true
-set.backspace = "2"
-set.showcmd = true
+local lazy_config = require "configs.lazy"
 
-set.expandtab = true
-set.tabstop = 4
-set.softtabstop = 2
-set.shiftwidth = 4
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
 
-set.writebackup = false
-set.swapfile = false
+  { import = "plugins" },
+}, lazy_config)
 
-set.updatetime = 500 -- ms before CursorHold fires (default is 4000)
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
