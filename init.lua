@@ -9,9 +9,8 @@ require("config.mappings")
 require("config.lsp")
 require("config.coc")
 require("config.treesitter")
-require("cmd.setup_py")
 
-vim.cmd.colorscheme("darkplus")
+vim.cmd.colorscheme("kanagawa")
 
 set.clipboard = "unnamedplus"
 set.termguicolors = true
