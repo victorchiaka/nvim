@@ -26,6 +26,10 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
     opts = function(_, opts)
       local actions = require "telescope.actions"
       opts.defaults = opts.defaults or {}
@@ -40,7 +44,17 @@ return {
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-j>"] = actions.move_selection_next,
       })
+      opts.extensions = vim.tbl_deep_extend("force", opts.extensions or {}, {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {},
+        },
+      })
       return opts
+    end,
+    config = function(_, opts)
+      local telescope = require "telescope"
+      telescope.setup(opts)
+      telescope.load_extension "ui-select"
     end,
   },
 
