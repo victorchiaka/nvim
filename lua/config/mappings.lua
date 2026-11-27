@@ -5,6 +5,8 @@ local opts = { noremap = true, silent = true }
 
 local telescope = require("telescope.builtin")
 local conform = require("conform")
+-- local fzf = require("fzf-lua")
+
 
 map("n", "<leader>n", ":Neotree filesystem reveal<ENTER>", opts)
 map("n", "<leader>dn", "<cmd>NoiceDismiss<ENTER>", { desc = "Dismiss Noice Message" })
@@ -21,10 +23,16 @@ map("n", "<leader>cpr", ":lua vim.lsp.document_color.color_presentation()<ENTER>
 map("n", "<leader>rn", buf.rename, {})
 map("n", "<leader>ca", buf.code_action, { noremap = true, silent = true })
 
+-- map("n", "<leader>f", fzf.files)
+-- map("n", "<leader>g", fzf.grep)
+-- map("n", "<leader>b", fzf.blines)
+-- map("n", "<leader>B", fzf.buffers) -- Find files in the buffer list
+
+
 map("n", "<leader>f", telescope.find_files, {})
 map("n", "<leader>g", telescope.live_grep, {})
 map("n", "<leader>b", telescope.current_buffer_fuzzy_find, {})
-map("n", "<leader>fb", telescope.buffers, {}) -- Find files in the buffer list
+map("n", "<leader>B", telescope.buffers, {}) -- Find files in the buffer list
 
 -- Formatting with conform
 map({ "n", "v" }, "<leader>v", conform.format, { noremap = true, silent = true })
