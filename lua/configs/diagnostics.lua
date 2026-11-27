@@ -1,4 +1,4 @@
-vim.diagnostic.config({
+vim.diagnostic.config {
   -- virtual_text = {
   --     prefix = function(diagnostic)
   --         if diagnostic.severity == vim.diagnostic.severity.ERROR then return "󰅚" end
@@ -19,7 +19,7 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   float = { border = "rounded" },
-})
+}
 
 -- vim.api.nvim_create_autocmd("CursorHold", {
 --     callback = function()
